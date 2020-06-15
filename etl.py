@@ -12,7 +12,7 @@ def process_song_file(cur, filepath):
     # insert song record
     song_data = 
     cur.execute(song_table_insert, song_data)
-    
+
     # insert artist record
     artist_data = 
     cur.execute(artist_table_insert, artist_data)
@@ -65,7 +65,7 @@ def process_data(cur, conn, filepath, func):
     all_files = []
     for root, dirs, files in os.walk(filepath):
         files = glob.glob(os.path.join(root,'*.json'))
-        for f in files :
+        for f in files:
             all_files.append(os.path.abspath(f))
 
     # get total number of files found
