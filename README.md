@@ -25,11 +25,11 @@ In your terminal: Run `python3 etl.py`
 
 ## How the DB could be used
 
-Any data analyst of Sparkify could run these queri
+Any data analyst of Sparkify could run these queries to retrieve some intesresting meaningful data that could answer some questions and bring forth some good insights.
 
 ---
 
-#1 qtt of paid users vs free users and its proportion
+#1 How many paid users vs free users we have??
 ```sql
 SELECT Count(user_id),
        Trunc(Count(user_id) * 100.0 / Sum(Count(*)) OVER(), 3) AS percentage,
@@ -37,11 +37,14 @@ SELECT Count(user_id),
 FROM   songplays
 GROUP  BY level; 
 ```
+This gives good strategic data to estimate the company expense!
+The result:
+
+[QUERY 1]
 
 ---
 
-#2 gender proportion of users and their levels
-
+#2 What is the gender proportion of users and their levels?
 ```sql
 SELECT Count(gender),
        Trunc(Count(gender) * 100.0 / Sum(Count(*)) OVER(), 3) AS percentage,
@@ -51,12 +54,16 @@ FROM   users
 GROUP  BY gender,
           level; 
 ```
+This result is important to understand the demographics of sparkify users. 
+The result:
+
+[QUERY 2]
 
 ---
 
-#3 region with more listening users 
-region with less listening users
+#3 What are the locations where users are using sparkify?
 
+By region:
 ```sql
 SELECT Count(Split_part(location, ',', 1)),
        Split_part(location, ',', 1) region,
@@ -66,6 +73,7 @@ GROUP  BY region,
           state
 ORDER  BY count DESC;
 ```
+By state:
 ``` sql
 SELECT Count(Split_part(location, ',', 2)),
        Split_part(location, ',', 2) state
@@ -73,9 +81,14 @@ FROM   songplays
 GROUP  BY state
 ORDER  BY count DESC;
 ```
+This can give some input on demographics based on geography. Many decisions can taken based on this result. For instance, if sparkify wants to launch a campaign on certain region to bring more users to the service and then see its effects.
+The result:
+[QUERY 3.1]
+[QUERY 3.2]
+
 ---
 
-#4 time where are played more
+#4 What time of the day does Sparkify have more active users?
 ```sql
 SELECT t.hour,
        Count(*)
@@ -85,5 +98,5 @@ FROM   songplays s
 GROUP  BY t.hour
 ORDER  BY t.hour; 
 ```
-
-blabalbalba
+This is a good way to estimate demographics and also to know when advertise campaings can have more effect for exmaple.
+[QUERY 4]
