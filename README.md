@@ -1,5 +1,31 @@
-QUERIES = 
+# Data modeling with postgres
 
+This is the first project of Udacity Data Engineer Nanodegree program and consists of data modeling a star schema for a startup called Sparkify.
+
+Sparkify is a data driven music stream service! That means that all its strategics decisions, in all levels of the company, are taken based on the data produced by its users, by the company itself and data from outside.
+
+This data has to be set up in a form that sparkify analysts are able to perform good insights and work their magic around it. This is the task of the data engineer team, and this project tackles this. The objective is to create an etl pipeline to load user data and songs/artists data into a database.
+
+The analysis of the used data was made in the notebook `etl.ipynb` and tests to see if data was loaded in `test.ipynb`
+
+The database is modeled as a [star schema](https://en.wikipedia.org/wiki/Star_schema) and thats shown belown:
+
+[image]
+
+All the queries used in this project are on `sql_queries.py`
+
+
+## How to run this project
+
+Firstly: 
+In your terminal: Run `python3 create_tables.py` 
+
+Secondly:
+In your terminal: Run `python3 etl.py` 
+
+## How the DB could be used
+
+Any data analyst of Sparkify could run these queri
 
 ---
 
