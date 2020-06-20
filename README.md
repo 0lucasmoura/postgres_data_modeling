@@ -10,7 +10,7 @@ The analysis of the used data was made in the notebook `etl.ipynb` and tests to 
 
 The database is modeled as a [star schema](https://en.wikipedia.org/wiki/Star_schema) and thats shown belown:
 
-[image]
+![SparkifyDB star Schame](images/sparkifydb_schema.png?raw=true "Title")
 
 All the queries used in this project are on `sql_queries.py`
 
@@ -40,7 +40,7 @@ GROUP  BY level;
 This gives good strategic data to estimate the company expense!
 The result:
 
-[QUERY 1]
+![First QUERY example](images/QUERY_1.png?raw=true "Title")
 
 ---
 
@@ -57,7 +57,7 @@ GROUP  BY gender,
 This result is important to understand the demographics of sparkify users. 
 The result:
 
-[QUERY 2]
+![Second QUERY example](images/QUERY_2.png?raw=true "Title")
 
 ---
 
@@ -83,8 +83,9 @@ ORDER  BY count DESC;
 ```
 This can give some input on demographics based on geography. Many decisions can taken based on this result. For instance, if sparkify wants to launch a campaign on certain region to bring more users to the service and then see its effects.
 The result:
-[QUERY 3.1]
-[QUERY 3.2]
+
+![Third QUERY first example](images/QUERY_3-1.png?raw=true "Title")
+![Third QUERY second example](images/QUERY_3-2.png?raw=true "Title")
 
 ---
 
@@ -99,4 +100,5 @@ GROUP  BY t.hour
 ORDER  BY t.hour; 
 ```
 This is a good way to estimate demographics and also to know when advertise campaings can have more effect for exmaple.
-[QUERY 4]
+
+![Fourth QUERY example](images/QUERY_4.png?raw=true "Title")
