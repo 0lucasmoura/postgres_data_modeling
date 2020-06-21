@@ -10,6 +10,13 @@ warnings.simplefilter(action='ignore', category=FutureWarning)
 
 
 def process_song_file(cur, filepath):
+    """
+        Process a file with songs in it and puts them on a database.
+        
+        params:
+        cur: A cursor to execute queries into the database
+        filepath: the absolute path of the file
+    """
     # open song file
     df = pd.read_json(filepath, lines=True)
 
@@ -27,6 +34,13 @@ def process_song_file(cur, filepath):
 
 
 def process_log_file(cur, filepath):
+    """
+        Process a file with logs of users in it and puts them on a database.
+        
+        params:
+        cur: A cursor to execute queries into the database
+        filepath: the absolute path of the file
+    """
     # open log file
     df = pd.read_json(filepath, lines=True)
 
@@ -70,6 +84,15 @@ def process_log_file(cur, filepath):
 
 
 def process_data(cur, conn, filepath, func):
+    """
+        An entry function to process all the data from users log and songs.
+        
+        params:
+        cur: A cursor to execute queries into the database
+        conn: A conneciton object with the database to commit the queries of data inserts
+        filepath: the filepath from the parent file with data 
+        func: a function to process the files.
+    """
     # get all files matching extension from directory
     all_files = []
     for root, dirs, files in os.walk(filepath):
@@ -89,6 +112,9 @@ def process_data(cur, conn, filepath, func):
 
 
 def main():
+    """
+       This script connects to the sparkifydb database, process the logs and songs files and insert all the data into the DB.
+    """
     conn = psycopg2.connect("host=127.0.0.1 dbname=sparkifydb user=student password=student")
     cur = conn.cursor()
 
